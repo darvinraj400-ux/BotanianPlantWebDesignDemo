@@ -1,1 +1,158 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap');
 @import "tailwindcss";
+
+@theme {
+  --color-sage-50: #f6f9f4;
+  --color-sage-100: #e8f0e4;
+  --color-sage-200: #d1e1c9;
+  --color-sage-300: #a8c89a;
+  --color-sage-400: #7ba86a;
+  --color-sage-500: #5a8a48;
+  --color-sage-600: #467038;
+  --color-sage-700: #37572d;
+  --color-sage-800: #2d4626;
+  --color-sage-900: #1f3119;
+  --color-cream-50: #fefdfb;
+  --color-cream-100: #fdf9f0;
+  --color-cream-200: #f9f0dd;
+  --color-cream-300: #f2e3c4;
+  --color-cream-400: #e8d1a0;
+  --color-cream-500: #d4b87a;
+  --color-earth-50: #faf8f5;
+  --color-earth-100: #f0ebe3;
+  --color-earth-200: #e0d5c6;
+  --color-earth-300: #c9b89e;
+  --color-earth-400: #a89474;
+  --color-earth-500: #8a7558;
+  --color-earth-600: #6d5c45;
+  --color-earth-700: #544636;
+  --color-earth-800: #3d3328;
+  --color-earth-900: #2a231c;
+  --color-moss-50: #f4f8f0;
+  --color-moss-100: #e4ede0;
+  --color-moss-200: #c8dbc0;
+  --color-moss-300: #9ec290;
+  --color-moss-400: #6fa55e;
+  --color-moss-500: #4d8540;
+  --color-moss-600: #3b6a30;
+  --color-moss-700: #2f5327;
+  --color-moss-800: #274321;
+  --color-moss-900: #1e3519;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  body {
+    font-family: 'Georgia', 'Times New Roman', serif;
+    background-color: var(--color-cream-50);
+    color: var(--color-earth-800);
+    overflow-x: hidden;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-sage-600 text-white px-6 py-3 rounded-full font-sans text-sm tracking-wide
+           hover:bg-sage-700 active:scale-95 transition-all duration-200
+           focus:outline-none focus:ring-2 focus:ring-sage-400 focus:ring-offset-2
+           min-h-[44px] min-w-[44px];
+  }
+
+  .btn-secondary {
+    @apply bg-cream-200 text-earth-700 px-6 py-3 rounded-full font-sans text-sm tracking-wide
+           hover:bg-cream-300 active:scale-95 transition-all duration-200
+           focus:outline-none focus:ring-2 focus:ring-earth-300 focus:ring-offset-2
+           min-h-[44px] min-w-[44px];
+  }
+
+  .btn-ghost {
+    @apply text-earth-600 px-4 py-2 rounded-full font-sans text-sm
+           hover:bg-cream-200 active:scale-95 transition-all duration-200
+           focus:outline-none focus:ring-2 focus:ring-earth-200
+           min-h-[44px] min-w-[44px];
+  }
+
+  .card-plant {
+    @apply bg-white rounded-3xl overflow-hidden shadow-sm
+           hover:shadow-md transition-shadow duration-300
+           border border-cream-200;
+  }
+
+  .section-divider {
+    @apply flex items-center justify-center gap-4 py-8;
+  }
+
+  .leaf-divider {
+    @apply text-sage-400 text-2xl;
+  }
+
+  .input-field {
+    @apply w-full px-4 py-3 rounded-xl border border-cream-300 bg-white
+           font-sans text-sm text-earth-700 placeholder-earth-400
+           focus:outline-none focus:ring-2 focus:ring-sage-300 focus:border-sage-400
+           min-h-[44px] transition-all duration-200;
+  }
+
+  .badge {
+    @apply inline-flex items-center px-3 py-1 rounded-full text-xs font-sans
+           bg-sage-100 text-sage-700;
+  }
+
+  .badge-active {
+    @apply inline-flex items-center px-3 py-1 rounded-full text-xs font-sans
+           bg-sage-600 text-white;
+  }
+}
+
+/* Safe area support */
+.safe-area-bottom {
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+/* Add bottom padding on mobile for bottom nav */
+@media (max-width: 767px) {
+  main {
+    padding-bottom: 5rem;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-cream-100);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-sage-300);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-sage-400);
+}
+
+.font-display {
+  font-family: 'Playfair Display', Georgia, serif;
+}
+
+.font-sans {
+  font-family: 'Inter', -apple-system, sans-serif;
+}
